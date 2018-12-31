@@ -1,4 +1,4 @@
-# Scripts
+# Ikea Tradfri - Fun and/or useful scripts!
 Hi, welcome to my Tradfri-scripts repo.
 
 In this repo you'll find (eventually) several scripts to control your Ikea Tradfri bulbs from a linux computer and/or server.
