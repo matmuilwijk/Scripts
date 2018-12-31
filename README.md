@@ -1,7 +1,25 @@
 # Scripts
 Hi, welcome to my Tradfri-scripts repo.
 
-In this repo you'll find (eventually) several scripts to control your Ikea Tradfri bulbs from a computer and/or server.
+In this repo you'll find (eventually) several scripts to control your Ikea Tradfri bulbs from a linux computer and/or server.
 
-The first script you'll find is one I've created for Tautulli. It provides a service that switches/dims the lights whenever a movie or
-TV-show is started on a Plex Media Server.
+For these scripts to work, you'll need Libcoap installed. You could either install it yourself, or run the script in the repo.
+1. Download the installcoap.sh script from this repo.
+2. Chmod the file to run it. `sudo chmod +x installcoap.sh`
+3. Run the file as root. `sudo sh installcoap.sh`
+
+All of these scripts need a username and pre-shared key to work. Keep in mind that this key will stop working if it hasn't 
+been used for 6 weeks or more.
+
+```
+coap-client -m post -u "Client_identity" -k "$GATEWAYCODE" -e '{"9090":"$USERNAME"}' "coaps://$GATEWAYIP:5684/15011/9063"
+```
+1.Replace $GATEWAYCODE with the security-code at the bottom of your Ikea Tradfri Gateway.
+2.Replace $USERNAME with a username of your liking. Remember it though, you'll need it!
+3.Replace $GATEWAYIP with the IP-adress of your Ikea Tradfri Gateway.
+
+Above command will return something like this:
+```
+{"9091":"$PRESHARED_KEY","9029":"1.3.0014"}
+```
+Where $PRESHARED_KEY is the key you'll need!
