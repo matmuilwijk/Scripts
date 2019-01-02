@@ -8,21 +8,18 @@ For these scripts to work, you'll need Libcoap installed. You could either insta
 2. Chmod the file to run it. `sudo chmod +x installcoap.sh`
 3. Run the file as root. `sudo sh installcoap.sh`
 
+# Getting a username and Preshared Key for our scripts.
 All of these scripts need a username and pre-shared key to work. Keep in mind that this key will stop working if it hasn't 
 been used for 6 weeks or more.
 
-```
-coap-client -m post -u "Client_identity" -k "$GATEWAYCODE" -e '{"9090":"$USERNAME"}' "coaps://$GATEWAYIP:5684/15011/9063"
-```
-1.Replace $GATEWAYCODE with the security-code at the bottom of your Ikea Tradfri Gateway.
-2.Replace $USERNAME with a username of your liking. Remember it though, you'll need it!
-3.Replace $GATEWAYIP with the IP-adress of your Ikea Tradfri Gateway.
+For this task, you'll need [get.psk.sh](https://github.com/matmuilwijk/Scripts/blob/master/get.psk.sh)-script, the IP-adress of your gateway and it's securitykey (printed on the bottom of you gateway).
 
-Above command will return something like this:
-```
-{"9091":"$PRESHARED_KEY","9029":"1.3.0014"}
-```
-Where $PRESHARED_KEY is the key you'll need!
+1. Run the script in your terminal `sh get.psk.sh`
+2. Enter the IP-adress of your gateway, when prompted.
+3. Create a username, when prompted.
+4. Enter, when prompted, the securitykey that's printed on the bottom of your gateway.
+5. Let the script run.
+6. When the script is finished, you'll find your Preshared Key in `psk.txt`. You can open this in your desired text-editor.
 
 # Identifying lights
 
