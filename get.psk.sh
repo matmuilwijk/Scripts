@@ -15,8 +15,11 @@ echo "Username:" $user >> psk.txt
 echo "Please enter the Security-Code that's printed at the bottom of you Ikea Tradfri Gateway:"
 read securityid
 
-echo "Preshared Key ({\"9091\":\"PRESHAREDKEY\",\"9029\":\"1.4.0015\"}):" >> psk.txt
+pskoutput=$(eval coap-client -m post -u \"Client_identity\" -k \"$securityid\" -e '{\"9090\":\"$user\"}' \"coaps://$ip:5684/15011/9063\")
+psk1=$(echo $pskoutput | cut -d':' -f 2)
+psk=$(echo $psk1 | cut -d',' -f 1)
 
-eval coap-client -m post -u \"Client_identity\" -k \"$securityid\" -e '{\"9090\":\"$user\"}' \"coaps://$ip:5684/15011/9063\" >> psk.txt
+
+echo "PreShared Key: " $psk >> psk.txt
 
 echo "Your IP-adress, username and Preshared key are saved in psk.txt!"
