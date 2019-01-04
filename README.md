@@ -25,7 +25,7 @@ For this task, you'll need [get.psk.sh](https://github.com/matmuilwijk/Scripts/b
 
 To identify what light is bound to what adress, you could use the script [light.identifier.sh](https://github.com/matmuilwijk/Scripts/blob/master/light.identifier.sh).
 
-Edit the script, providing your specific parameters. (If you followed this guide, this information will be stored in a file called `psk.txt`.
+Edit the script, providing your specific parameters. (If you followed this guide, this information will be stored in a file called `psk.txt`.)
 1. Fill in your gateway's IP-adress at `ip=`
 2. Fill in your username at `user=`
 3. Fill in your Preshared-key at `psk=`
